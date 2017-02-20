@@ -1,11 +1,32 @@
-<html>
+﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="initial-scale=1.0,user-scalable=no" />
-<meta name="mobile-web-app-capable" content="yes" />
-<title>樂山教養院</title>
+<link href="Pics/logo.png" rel="shortcut icon">
+<title>樂在教育</title>
+<script src="Impo/jquery.min.js"></script>
 </head>
+<style>
+	::-webkit-scrollbar{width:10px;height:10px}
+	::-webkit-scrollbar-track{width:10px;height:5px;opacity:0.5}
+	::-webkit-scrollbar-thumb{width:10px;height:10px;border-radius:10px;background-color:#603813}
+	body{margin:0px;background-image:url(Pics/bg.jpg);overflow:hidden}
+	#Container{transition:opacity 1s}
+	a:hover{opacity:0.5}
+</style>
 <body>
-  樂山教養院
+	<div id="Container" style="opacity:0">
+		<table align="center">
+			<tr>
+				<td align="center" width="800" height="600"><img></td>
+			</tr>
+			<tr>
+				<td align="center"><a href="repo.html"><img src="Pics/enter.png"></a></td>
+			</tr>
+		</table>
+	</div>
 </body>
-</html>  
+<script>
+$(window).load(function(){$("#Container").css("opacity",1);$("img")[0].src="Pics/PO.gif"})
+</script>
+</html>
