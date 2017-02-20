@@ -62,7 +62,7 @@
 				<tr><td colspan="2"><a href="#c6"><img id="asys" src="Pics/asys.png"/></a></td></tr>
 				<tr><td colspan="2"><a href="#c7"><img id="team" src="Pics/team.png"/></a></td></tr>
 				<tr>
-					<td><a href="index.html"><img id="home" src="Pics/home.png"/></a></td>
+					<td><a href="index.html#a"><img id="home" src="Pics/home.png"/></a></td>
 					<td><a href="repo.html"><img id="repo" src="Pics/repo.png"/></a></td>
 				</tr>
 			</table>
@@ -1050,7 +1050,10 @@ $(window).load(function(){
 		$("#content").animate({scrollTop:$("#c73 h1")[e.path[0].getAttribute("data-p")].offsetTop-10},500)
 	});$("#cover").css("background-image","url(Pics/photo.gif)")
 	$("#page img").mouseover(function(){this.src="Pics/"+this.id+"h.png"});$("#Container").css("opacity",1)
-	$("#page img").mouseout(function(){this.src="Pics/"+this.id+".png"});Rsz();Ctt()
+	$("#page img").mouseout(function(){this.src="Pics/"+this.id+".png"});Rsz();Ctt();
+	for(var i=0;i<16;i++){
+		var img=new Image();img.src="Pics/Abum/"+i+".jpg"
+	}
 })
 $(window).resize(function(){Rsz()})
 $(window).on("hashchange",function(){Ctt()})
