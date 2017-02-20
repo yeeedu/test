@@ -143,6 +143,7 @@
 				</table>
 			</div>
 		</div>
+		<div style="position:absolute;bottom:65px;right:4%;background:url(Pics/TOP.png);width:40px;height:40px;background-position:center center;background-size:40px" onclick="$('#content').animate({scrollTop:0},500)"></div>
 		<div id="foot">樂在教育 HappyEducation &copy 2017</div>
 	</div>
 </body>
@@ -157,7 +158,7 @@ function Rsz(){var ww=1200;if($(window).width()<1000)ww=$(window).width();$("#Co
 }
 function Ctt(){document.body.scrollTop=0;if(!location.hash)return location.hash="c1"
 	if(location.hash.length>2){$("#content").css("overflow","hidden")
-		$(".content").css("width","0px").css("margin","0px").css("opacity",0).css("display","")
+		$(".content").css("width","0px").css("margin","0px").css("opacity",0).css("display","");$("#content")[0].scrollTop=0
 		$(location.hash).css("width",$("#content").width()-60+"px").css("margin","10px 30px").css("opacity","")
 	}else $(".content").css("width",$("#content").width()-60+"px")
 	$("#content").css("overflow","auto");setTimeout(function(){
