@@ -11,22 +11,13 @@
 	::-webkit-scrollbar-track{width:10px;height:5px;opacity:0.5}
 	::-webkit-scrollbar-thumb{width:10px;height:10px;border-radius:10px;background-color:#603813}
 	body{margin:0px;background-image:url(Pics/bg.jpg);overflow:hidden}
-	#Container{transition:opacity 1s}
+	#Container,#enter{transition:opacity 1s}
 	a:hover{opacity:0.5}
-	#po{background:url(Pics/Anime/PO0.png)}
-	#po1{background:url(Pics/Anime/PO1.png)}
-	#po2{background:url(Pics/Anime/PO2.png)}
-	#po3{background:url(Pics/Anime/PO3.png)}
-	#po4{background:url(Pics/Anime/PO4.png)}
-	#po5{background:url(Pics/Anime/PO5.png)}
-	#po6{background:url(Pics/Anime/PO6.png)}
-	#po7{background:url(Pics/Anime/PO7.png)}
-	#po8{background:url(Pics/Anime/PO8.png)}
 	#po0,#po1,#po2,#po3,#po4,#po5,#po6,#po7,#po8{
 		position:absolute;width:800px;height:600px;background-repeat:no-repeat;background-position:center center;
 	}
-	#po7{background-position:bottom right}
-	#po8{background-position:top left}
+	#po7{background-position:top left}
+	#po8{background-position:bottom right}
 </style>
 <body>
 	<div id="Container" style="opacity:0">
@@ -47,7 +38,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td align="center"><a href="main.html"><img src="Pics/enter.png"></a></td>
+				<td align="center"><a href="main.html"><img src="Pics/enter.png" id="enter" style="opacity:0"></a></td>
 			</tr>
 		</table>
 	</div>
@@ -63,11 +54,15 @@ for(var i=0;i<9;i++){$("table tr td div div")[i].style.top="-600px"
 $("table tr td div div").css("opacity",0).css("transition","all 2s")
 if(!location.hash)location="repo.html"
 $(window).load(function(){$("#Container").css("opacity",1);Show(0)})
-function Show(v){if(v==9)return
-	$("table tr td div div")[v].style.opacity=1
-	$("table tr td div div")[v].style.top="0px"
-	$("table tr td div div")[v].style.left="0px"
-	setTimeout("Show("+(v+1)+")",2000)
+function Show(v){if(v==9){$("#enter").css("opacity",1);return}
+	var img=new Image();img.src="Pics/Anime/PO"+v+".png"
+	img.addEventListener("load",function(){
+		$("table tr td div div")[v].style.backgroundImage="url("+img.src+")"
+		$("table tr td div div")[v].style.opacity=1
+		$("table tr td div div")[v].style.top="0px"
+		$("table tr td div div")[v].style.left="0px"
+		setTimeout("Show("+(v+1)+")",2000)
+	})
 }
 </script>
 </html>
