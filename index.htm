@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no" />
+<link href="Pics/logo.png" rel="shortcut icon">
+<title>樂在教育</title>
+<script src="Impo/jquery.min.js"></script>
+</head>
+<style>
+	::-webkit-scrollbar{width:10px;height:10px}
+	::-webkit-scrollbar-track{width:10px;height:5px;opacity:0.5}
+	::-webkit-scrollbar-thumb{width:10px;height:10px;border-radius:10px;background-color:#603813}
+	body{margin:0px;background-image:url(Pics/bg.jpg);overflow:hidden}
+	#Container,#enter{transition:opacity 1s}
+	a:hover{opacity:0.5}
+	#po0,#po1,#po2,#po3,#po4,#po5,#po6,#po7,#po8{
+		position:absolute;width:800px;height:600px;background-repeat:no-repeat;background-position:center center;
+	}
+	#po7{background-position:top left}
+	#po8{background-position:bottom right}
+</style>
+<body>
+	<div id="Container" style="opacity:0">
+		<table align="center">
+			<tr>
+				<td align="center">
+					<div style="width:800px;height:600px;overflow:hidden;position:relative">
+						<div id="po0"></div>
+						<div id="po1"></div>
+						<div id="po2"></div>
+						<div id="po3"></div>
+						<div id="po4"></div>
+						<div id="po5"></div>
+						<div id="po6"></div>
+						<div id="po7"></div>
+						<div id="po8"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><a href="main.htm"><img src="Pics/enter.png" id="enter"></a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script>
+for(var i=0;i<9;i++){$("table tr td div div")[i].style.top="-600px"
+	if(i%2==0){
+		$("table tr td div div")[i].style.left="-800px"
+	}else{
+		$("table tr td div div")[i].style.left="1600px"
+	}
+}
+$("table tr td div div").css("opacity",0).css("transition","all 2s")
+if(!location.hash)location="narrative.htm"
+$(window).load(function(){$("#Container").css("opacity",1);Show(0)})
+function Show(v){if(v==9)return
+	var img=new Image();img.src="Pics/Anime/PO"+v+".png"
+	img.addEventListener("load",function(){
+		$("table tr td div div")[v].style.backgroundImage="url("+img.src+")"
+		$("table tr td div div")[v].style.opacity=1
+		$("table tr td div div")[v].style.top="0px"
+		$("table tr td div div")[v].style.left="0px"
+		setTimeout("Show("+(v+1)+")",2000)
+	})
+}
+</script>
+</html>
